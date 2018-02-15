@@ -25,7 +25,7 @@
 
 # How to Run
 
-1. Navigate to the project folder where you can find the codes
+1. Navigate to the project folder for the first project DigitRecognizer
 
 2. Activate the environment if it's not already.
   ```bash
