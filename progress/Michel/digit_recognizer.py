@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import svm
 
 import sys
-# Add the folder path to the sys.path list
+# Add the toolkit by Joan to the sys.path list
 sys.path.append('/progress/Joan/toolkit/')
 from file_operations import mnist_to_pdseries, write_results
 

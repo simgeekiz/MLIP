@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+from sklearn import preprocessing
 from numpy import genfromtxt
 
 ### Group of functions related to doing file operations involving the dataset. ###
