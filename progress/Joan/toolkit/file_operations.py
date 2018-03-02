@@ -6,11 +6,15 @@ from numpy import genfromtxt
 ### Group of functions related to doing file operations involving the dataset. ###
 
 # Takes a path to a directory and opens returns the train and test set in that directory as a pandas dataframe.
-def mnist_to_pdseries(path):
+def mnist_to_pdseries(path, scale=True):
 	train = pd.read_csv(path + 'train.csv')
 	y = train.ix[:,0]
 	train = train.drop('label',1)
 	test = pd.read_csv(path + 'test.csv')
+	if scale:
+        scaler = preprocessing.StandardScaler()
+        train = scaler.fit_transform(train)
+        test = scaler.transform(test)
 	return [train, y, test]
 
 # Takes a path to a directory and opens returns the train and test set in that directory as a numpy array.
