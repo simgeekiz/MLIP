@@ -19,8 +19,8 @@ def mnist_to_pdseries(path, scale=True):
     return [train, y, test]
 
 # Takes a path to a directory and opens returns the train and test set in that directory as a numpy array.
-def mnist_to_nparray(path):
-    [train, y, test] = mnist_to_pdseries(path)
+def mnist_to_nparray(path, scale=True):
+    [train, y, test] = mnist_to_pdseries(path, scale)
     train = train.values
     y = y.values
     test = test.values
