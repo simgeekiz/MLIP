@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
+from keras.utils import np_utils
 
 from sklearn import preprocessing
-from numpy import genfromtxt
 
 ### Group of functions related to doing file operations involving the dataset. ###
 
@@ -39,3 +39,10 @@ def categorical_to_class(cat):
     for c in cat:
         classes.append(np.argmax(c))
     return classes
+
+def reshape_data_for_nn(train, y, test):
+    # reshape to be [samples][pixels][width][height]
+    train = train.reshape(train.shape[0], 1, 28, 28).astype('float32')
+    test = test.reshape(test.shape[0], 1, 28, 28).astype('float32')
+    # one hot encode outputs
+    y = np_utils.to_categorical(y_train)
