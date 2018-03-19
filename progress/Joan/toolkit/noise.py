@@ -15,13 +15,13 @@ def flip_class_labels(y, p, sd=1):
 			y[i] = (label + randint(1,9)) % 10
 			
 
-# For every pixel in the given dataset change the value to a random grayscale value with probability p. Takes approximately 25-30 minutes for the whole dataset.
+# For every pixel in the given DATASET change the value to a random grayscale value with probability p. 
 def add_noisy_pixels(x, p, sd=1):
 	seed(sd)
 	
 	if isinstance(x, np.ndarray):
 		for img in x:
-			for i,v in enumerate(img):
+			for i,_ in enumerate(img):
 				if random() < p:
 					img[i] = randint(0,255)
 	elif isinstance(x, pd.DataFrame):
@@ -30,9 +30,24 @@ def add_noisy_pixels(x, p, sd=1):
 				if random() < p:
 					img.iloc[i] = randint(0,255)
 	else:
-		raise ValueError('Unsupported type in toolkit.noise -> add_noisy_pixels')
+		raise ValueError('Unsupported type >{0}< in toolkit.noise -> add_noisy_pixels'.format(type(x)))
 
-		
+# For every pixel in the given IMAGE change the value to a random grayscale value with probability p. 
+def add_noisy_pixels_img(img, p, sd=1):
+	seed(sd)
+	
+	if isinstance(img, np.ndarray):
+		for i,_ in enumerate(img):
+			if random() < p:
+				img[i] = randint(0,255)
+	elif isinstance(img, pd.Series):
+		for i,_ in enumerate(img):
+			if random() < p:
+				img.iloc[i] = randint(0,255)
+	else:
+		raise ValueError('Unsupported type >{0}< in toolkit.noise -> add_noisy_pixels'.format(type(img)))
+
+
 # Reduce the given dataset to p percent of the original size.		
 def reduce_dataset(x, p):
 	num = int(p * x.shape[0])
@@ -46,7 +61,7 @@ def reduce_dataset(x, p):
 	elif isinstance(x, pd.Series): 
 		red = x.head(n=num)
 	else:
-		raise ValueError('Unsupported type in toolkit.noise -> reduce_dataset')
+		raise ValueError('Unsupported type >{0}< in toolkit.noise -> reduce_dataset'.format(type(x)))
 		
 	return red
 
@@ -57,5 +72,5 @@ def display_digit(digit):
 		digit = digit.values
 	
 	digit = digit.reshape((28,28))
-	plt.imshow(digit, interpolation='nearest')
+	plt.imshow(digit, cmap='gray')
 	plt.show()
