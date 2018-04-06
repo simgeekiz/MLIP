@@ -25,13 +25,13 @@ def train_conv_net(train, y, epoch_num=25, fault_focus=False, model=None):
 		model.add(Flatten())
 		
 		model.add(Dense(128))
-		model.add(Activation('relu'))
 		model.add(BatchNormalization())
+		model.add(Activation('relu'))
 		
 		model.add(Dropout(0.5))
 		
 		model.add(Dense(10))
-		model.add(BatchNormalization())
+		#model.add(BatchNormalization())
 		model.add(Activation('softmax'))
 		
 		model.compile(loss='categorical_crossentropy', optimizer='adam')
