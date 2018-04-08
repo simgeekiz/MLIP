@@ -10,21 +10,14 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 from sklearn import svm
 
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Flatten
-from keras.layers.convolutional import Conv2D, MaxPooling2D
-from keras.optimizers import Adam
-from keras.utils import np_utils
-
 from file_operations import mnist_to_pdseries, write_results
+from neural_networks import simple_nn, convolution_nn
 
-DATA_FOLDER = 'progress/Joan/data/'
-RESULTS_FOLDER = 'progress/Michel/results/'
+DATA_FOLDER = 'Joan/data/'
+RESULTS_FOLDER = 'Michel/results/'
 
 def classify(X_train, y_train, X_test, classifiers):
     nr_of_samples = X_train.shape[0]
-    classes = np.unique(y_train)
-    nr_of_classes = len(classes)
 
     # svm implementation
     if 'svm' in classifiers:
@@ -41,24 +34,12 @@ def classify(X_train, y_train, X_test, classifiers):
         write_results(k_predictions, RESULTS_FOLDER, 'k_results')
     
     if 'simple_nn' in classifiers:
-        epochs = 32
-        batch_size = 64
-        learning_rate = 0.01
-        optimizer = Adam(lr=learning_rate)
+        simple_nn_predictions = simple_nn(X_train, y_train, X_test)
+        write_results(simple_nn_predictions, RESULTS_FOLDER, 'simple_nn_results') 
 
-        model = Sequential()
-        model.add(Dense(64, input_shape=(X_train.shape[1],), activation='relu'))
-        model.add(Dense(nr_of_classes, activation='softmax'))
-        model.compile(optimizer=optimizer,
-                        loss='categorical_crossentropy',
-                        metrics=['accuracy']
-        )
-
-        y_train_one_hot = np_utils.to_categorical(y_train, num_classes=nr_of_classes)
-        model.fit(X_train, y_train_one_hot, epochs=epochs, batch_size=batch_size)
-        simple_nn_predictions = model.predict(X_test)
-        simple_nn_predictions = [np.argmax(sample_scores) for sample_scores in simple_nn_predictions]
-        write_results(simple_nn_predictions, RESULTS_FOLDER, 'simple_nn_results_3')
+    if 'conv_nn' in classifiers:
+        conv_pred = convolution_nn(X_train, y_train, X_test)
+        write_results(conv_pred, RESULTS_FOLDER, 'conv_nn_results') 
 
 def main():
     """Run analyses"""
@@ -67,7 +48,8 @@ def main():
     # svm - Support Vector Machine
     # knn - K-nearest neighbors
     # simple_nn - Simple Neural Network
-    algorithms = ['simple_nn']
+    # conv_nn - Convolutional Neural Network
+    algorithms = ['conv_nn']
     classify(train, y, test, algorithms)
 
 if __name__ == "__main__":
