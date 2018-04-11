@@ -63,12 +63,12 @@ def read_preprocessed_dataset(path):
         Since reshaping is lost when storing arrays, it is restored here, but only for matrices.
         Target vectors can be stored as 2d matrices - onehot - so they remain unchanged.
     """
-    train = reshape_matrix_to3d(pd.read_csv(path+'train.csv').values)
-    target = pd.read_csv(path+'train_target.csv').values # is already reshaped
-    test = reshape_matrix_to3d(pd.read_csv(path + 'test.csv').values)
+    train = reshape_matrix_to3d(pd.read_csv(path+'train.csv', header=None).values)
+    target = pd.read_csv(path+'train_target.csv', header=None).values # is already reshaped
+    test = reshape_matrix_to3d(pd.read_csv(path + 'test.csv', header=None).values)
     if 'val.csv' in os.listdir(path) and 'val_target.csv' in os.listdir(path):
-        val = reshape_matrix_to3d(pd.read_csv(path+'val.csv').values)
-        val_target = pd.read_csv(path+'val_target.csv').values
+        val = reshape_matrix_to3d(pd.read_csv(path+'val.csv', header=None).values)
+        val_target = pd.read_csv(path+'val_target.csv', header=None).values
         return train, target, test, val, val_target
     return train, target, test
 
