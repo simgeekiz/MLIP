@@ -6,6 +6,14 @@ from numpy import genfromtxt
 
 ### Group of functions related to doing file operations involving the dataset. ###
 
+# Save keras model
+#def save_keras(model, filename, filepath=''):
+#	model.save(filepath + filename + '.h5')
+
+# Load keras model
+#def load_keras(filename, filepath=''):
+#	return load_model(filepath + filename + '.h5')
+
 # Takes a path to a directory and opens returns the train and test set in that directory as a pandas dataframe.
 def mnist_to_pdseries(path, train='train', test='test', scale=True):
     train = pd.read_csv(path + train + '.csv')
