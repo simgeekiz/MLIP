@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
+from keras.utils import np_utils
 
 from sklearn import preprocessing
-from numpy import genfromtxt
 
 ### Group of functions related to doing file operations involving the dataset. ###
 
@@ -62,3 +62,11 @@ def write_data(data, name, train):
 	data.columns = columns
 	
 	data.to_csv(name + ".csv", index=False)
+
+def reshape_data_for_nn(train, y, test):
+    # reshape to be [samples][pixels][width][height]
+    train = train.reshape(train.shape[0], 1, 28, 28).astype('float32')
+    test = test.reshape(test.shape[0], 1, 28, 28).astype('float32')
+    # one hot encode outputs
+    y = np_utils.to_categorical(y_train)
+

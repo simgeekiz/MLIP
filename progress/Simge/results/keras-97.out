@@ -1,0 +1,99 @@
+Loading data...
+Preprocessing...
+Splitting...
+Creating the model...
+Model summary:
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 300)               235500    
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 300)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 100)               30100     
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 100)               0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 100)               10100     
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 100)               0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 100)               10100     
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 100)               0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 50)                5050      
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 50)                0         
+_________________________________________________________________
+Output_Layer (Dense)         (None, 10)                510       
+=================================================================
+Total params: 291,360
+Trainable params: 291,360
+Non-trainable params: 0
+_________________________________________________________________
+None
+Compiling...
+Fitting...
+Train on 37800 samples, validate on 4200 samples
+Epoch 1/30
+ - 18s - loss: 0.7236 - acc: 0.7707 - val_loss: 0.2201 - val_acc: 0.9398
+Epoch 2/30
+ - 17s - loss: 0.2860 - acc: 0.9263 - val_loss: 0.1726 - val_acc: 0.9526
+Epoch 3/30
+ - 19s - loss: 0.2128 - acc: 0.9456 - val_loss: 0.1608 - val_acc: 0.9581
+Epoch 4/30
+ - 18s - loss: 0.1793 - acc: 0.9562 - val_loss: 0.1434 - val_acc: 0.9624
+Epoch 5/30
+ - 19s - loss: 0.1618 - acc: 0.9608 - val_loss: 0.1739 - val_acc: 0.9610
+Epoch 6/30
+ - 17s - loss: 0.1425 - acc: 0.9654 - val_loss: 0.1361 - val_acc: 0.9717
+Epoch 7/30
+ - 16s - loss: 0.1352 - acc: 0.9683 - val_loss: 0.1165 - val_acc: 0.9729
+Epoch 8/30
+ - 17s - loss: 0.1183 - acc: 0.9717 - val_loss: 0.1277 - val_acc: 0.9724
+Epoch 9/30
+ - 18s - loss: 0.1146 - acc: 0.9728 - val_loss: 0.1117 - val_acc: 0.9731
+Epoch 10/30
+ - 18s - loss: 0.1111 - acc: 0.9757 - val_loss: 0.1125 - val_acc: 0.9783
+Epoch 11/30
+ - 17s - loss: 0.1079 - acc: 0.9757 - val_loss: 0.1339 - val_acc: 0.9757
+Epoch 12/30
+ - 17s - loss: 0.1025 - acc: 0.9772 - val_loss: 0.1432 - val_acc: 0.9757
+Epoch 13/30
+ - 17s - loss: 0.1042 - acc: 0.9778 - val_loss: 0.1222 - val_acc: 0.9781
+Epoch 14/30
+ - 18s - loss: 0.0977 - acc: 0.9789 - val_loss: 0.1418 - val_acc: 0.9769
+Epoch 15/30
+ - 18s - loss: 0.1030 - acc: 0.9789 - val_loss: 0.1189 - val_acc: 0.9757
+Epoch 16/30
+ - 17s - loss: 0.0964 - acc: 0.9793 - val_loss: 0.1370 - val_acc: 0.9729
+Epoch 17/30
+ - 17s - loss: 0.1005 - acc: 0.9796 - val_loss: 0.1326 - val_acc: 0.9769
+Epoch 18/30
+ - 18s - loss: 0.0924 - acc: 0.9813 - val_loss: 0.1423 - val_acc: 0.9743
+Epoch 19/30
+ - 18s - loss: 0.0967 - acc: 0.9822 - val_loss: 0.1579 - val_acc: 0.9764
+Epoch 20/30
+ - 18s - loss: 0.0991 - acc: 0.9808 - val_loss: 0.1509 - val_acc: 0.9767
+Epoch 21/30
+ - 17s - loss: 0.1004 - acc: 0.9826 - val_loss: 0.1495 - val_acc: 0.9781
+Epoch 22/30
+ - 17s - loss: 0.1087 - acc: 0.9813 - val_loss: 0.1547 - val_acc: 0.9783
+Epoch 23/30
+ - 19s - loss: 0.1080 - acc: 0.9814 - val_loss: 0.1680 - val_acc: 0.9738
+Epoch 24/30
+ - 16s - loss: 0.1028 - acc: 0.9834 - val_loss: 0.1554 - val_acc: 0.9776
+Epoch 25/30
+ - 17s - loss: 0.1120 - acc: 0.9823 - val_loss: 0.1724 - val_acc: 0.9774
+Epoch 26/30
+ - 18s - loss: 0.1108 - acc: 0.9827 - val_loss: 0.1824 - val_acc: 0.9764
+Epoch 27/30
+ - 17s - loss: 0.1156 - acc: 0.9816 - val_loss: 0.1559 - val_acc: 0.9764
+Epoch 28/30
+ - 15s - loss: 0.1138 - acc: 0.9824 - val_loss: 0.1627 - val_acc: 0.9783
+Epoch 29/30
+ - 17s - loss: 0.1041 - acc: 0.9835 - val_loss: 0.1690 - val_acc: 0.9781
+Epoch 30/30
+ - 19s - loss: 0.1049 - acc: 0.9834 - val_loss: 0.1898 - val_acc: 0.9774
+Fitting took 526.3885865211487 seconds
