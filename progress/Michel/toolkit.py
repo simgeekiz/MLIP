@@ -54,7 +54,7 @@ def write_dataset_to_disk(dataset, target, path='', test_set=None, val_set=None)
     if val_set is not None:
         val_frame = pd.DataFrame(data=reshape_matrix_to2d(val_set[0]))
         val_frame.to_csv(path+'val.csv', index=False, header=False)
-        val_target_frame = pd.DataFrame(data=reshape_matrix_to2d(val_set[0]))
+        val_target_frame = pd.DataFrame(data=val_set[1])
         val_target_frame.to_csv(path+'val_target.csv', index=False, header=False)
 
 def read_preprocessed_dataset(path):
